@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Copyright>Copyright Extractify® 2018-2022. Todos os direitos reservados.</Copyright>
+    <Company>Zylix</Company>
+    <Product>SGT - Sistema de Gestão de Terminais</Product>
+    <Authors>Zylix</Authors>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="7.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Touchless.Access.Api.Security\Touchless.Access.Api.Security.csproj" />
+    <ProjectReference Include="..\Touchless.Access.Authentication\Touchless.Access.Authentication.csproj" />
+    <ProjectReference Include="..\Touchless.Access.Pagination\Touchless.Access.Pagination.csproj" />
+    <ProjectReference Include="..\Touchless.Access.Repository\Touchless.Access.Repository.csproj" />
+    <ProjectReference Include="..\Touchless.Access.Services.Common\Touchless.Access.Services.Common.csproj" />
+  </ItemGroup>
+
+</Project>

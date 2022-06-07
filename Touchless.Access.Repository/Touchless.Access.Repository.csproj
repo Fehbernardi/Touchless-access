@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Copyright>Copyright Extractify® 2018-2022. Todos os direitos reservados.</Copyright>
+    <Company>Zylix</Company>
+    <Product>SGT - Sistema de Gestão de Terminais</Product>
+    <Authors>Zylix</Authors>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="6.0.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="6.0.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.System" Version="6.0.1" />
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
+    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="6.13.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Touchless.Access.Data\Touchless.Access.Data.csproj" />
+    <ProjectReference Include="..\Touchless.Access.Exception\Touchless.Access.Exception.csproj" />
+    <ProjectReference Include="..\Touchless.Access.Pagination\Touchless.Access.Pagination.csproj" />
+    <ProjectReference Include="..\Touchless.Access.Services.Common\Touchless.Access.Services.Common.csproj" />
+  </ItemGroup>
+
+</Project>

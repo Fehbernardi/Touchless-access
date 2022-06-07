@@ -1,0 +1,493 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Touchless.Access.Services.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Touchless.Access.Services.Common.AuthenticationKeySearch">
+            <summary>
+            Objeto utilizado para especificar os argumentos de busca das chaves de autenticação.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.AuthenticationKeySearch.Active">
+            <summary>
+            Atribuir/Recuperar indicativo se a chave de autenticação esta ativa ou não.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.AuthenticationKeySearch.Id">
+            <summary>
+            Atribuir/Recuperar identificador da chave de autenticação.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.ClientSearch">
+            <summary>
+            Objeto utilizado para especificar os argumentos de busca dos clientes.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.ClientSearch.Active">
+            <summary>
+            Atribuir/Recuperar indicativo se o cliente esta ativo ou não.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.ClientSearch.FederalIdentification">
+            <summary>
+            Atribuir/Recuperar CPF ou CNPJ.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.ClientSearch.Id">
+            <summary>
+            Atribuir/Recuperar identificador do cliente.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.ClientSearch.Name">
+            <summary>
+            Atribuir/Recuperar nome.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.ClientSearch.IncludeAll">
+            <summary>
+            Indicativo informando que deve ser adicionado as informações complementares.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.AddressViewModel">
+            <summary>
+            Objeto representando os endereços.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AddressViewModel.City">
+            <summary>
+            Atribuir/Recuperar a cidade.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AddressViewModel.Complement">
+            <summary>
+            Atribuir/Recuperar dados complementares.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AddressViewModel.Label">
+            <summary>
+            Atribuir/Recuperar o rótulo.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AddressViewModel.Number">
+            <summary>
+            Atribuir/Recuperar o número.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AddressViewModel.PostalCode">
+            <summary>
+            Atribuir/Recuperar o CEP.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AddressViewModel.State">
+            <summary>
+            Atribuir/Recuperar o Estado.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AddressViewModel.Street">
+            <summary>
+            Atribuir/Recuperar o nome da rua.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.AuthenticationKeyViewModel">
+            <summary>
+            Objeto representando a tabela AuthenticationKey.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AuthenticationKeyViewModel.Active">
+            <summary>
+            Atribuir/Recuperar indicativo se a chave esta ativa ou não.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AuthenticationKeyViewModel.Code">
+            <summary>
+            Atribuir/Recuperar o código.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.AuthenticationKeyViewModel.Label">
+            <summary>
+            Atribuir/Recuperar o rótulo.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.BaseViewModel">
+            <summary>
+            Objeto contendo as propriedades padrões de todos os objetos.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.BaseViewModel.CreatedAt">
+            <summary>
+            Atribuir/Recuperar a data de criação.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.BaseViewModel.Id">
+            <summary>
+            Atribuir/Recuperar o identificador do registro.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.ChangePasswordRequestViewModel">
+            <summary>
+            Objeto representando as informações para a mudança da senha.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ChangePasswordRequestViewModel.NewPassword">
+            <summary>
+            Atribuir/Recuperar nova senha do usuário.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ChangePasswordRequestViewModel.OldPassword">
+            <summary>
+            Atribuir/Recuperar senha antiga do usuário.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.ClientAddressViewModel">
+            <summary>
+            Objeto representando os endereços dos clientes.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientAddressViewModel.Address">
+            <summary>
+            Atribuir/Recuperar objeto contendo as informações do endereço.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientAddressViewModel.Customer">
+            <summary>
+            Atribuir/Recuperar objeto contendo as informações do cliente.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.ClientTelephoneViewModel">
+            <summary>
+            Objeto representando os telefones dos clientes.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientTelephoneViewModel.Customer">
+            <summary>
+            Atribuir/Recuperar objeto contendo as informações do cliente.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientTelephoneViewModel.Telephone">
+            <summary>
+            Atribuir/Recuperar objeto contendo as informações do telefone.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.ClientViewModel">
+            <summary>
+            Objeto representando os clientes.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientViewModel.Active">
+            <summary>
+            Atribuir/Recuperar indicativo se o cliente esta ativo ou não.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientViewModel.Comments">
+            <summary>
+            Attribuir/Recuperar os comentários.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientViewModel.ClientAddresses">
+            <summary>
+            Atribuir/Recuperar a coleção de endereços.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientViewModel.ClientsTelephones">
+            <summary>
+            Atribuir/Recuperar a coleção de telefones.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientViewModel.FederalIdentification">
+            <summary>
+            Atribuir/Recuperar CPF ou CNPJ.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.ClientViewModel.Name">
+            <summary>
+            Atribuir/Recuperar nome.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Models.ClientViewModel.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.LoginRequestViewModel">
+            <summary>
+            Objeto representando as informações utilizadas no login.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.LoginRequestViewModel.Password">
+            <summary>
+            Atribuir/Recuperar senha do usuário.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.LoginRequestViewModel.UserName">
+            <summary>
+            Atribuir/Recuperar usuário.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.LoginResultViewModel">
+            <summary>
+            Objeto representando as informações do resultado do processo de login.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.LoginResultViewModel.AccessToken">
+            <summary>
+            Atribuir/Recuperar o token de acesso.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.LoginResultViewModel.RefreshToken">
+            <summary>
+            Atribuir/Recuperar o refresh token.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.LoginResultViewModel.Role">
+            <summary>
+            Atribuir/Recuperar a função a qual o usuário pertence.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.LoginResultViewModel.UserName">
+            <summary>
+            Atribuir/Recuperar usuário.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.RefreshTokenRequestViewModel">
+            <summary>
+            Objeto representando as informações da renovação do token de segurança.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.RefreshTokenRequestViewModel.RefreshToken">
+            <summary>
+            Atribuir/Recuperar token de renovação.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.RoleViewModel">
+            <summary>
+            Objeto representando as funções.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.RoleViewModel.Name">
+            <summary>
+            Atribuir/Recuperar nome.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.TelephoneViewModel">
+            <summary>
+            Objeto representando os telefones.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.TelephoneViewModel.CountryCode">
+            <summary>
+            Atribuir/Recuperar código do país.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.TelephoneViewModel.Number">
+            <summary>
+            Atribuir/Recuperar número do telefone.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.TelephoneViewModel.RegionCode">
+            <summary>
+            Atribuir/Recuperar código da região.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.UserRoleViewModel">
+            <summary>
+            Objeto representando as funções dos usuários.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserRoleViewModel.Role">
+            <summary>
+            Atribuir/Recuperar objeto contendo as informações da função.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserRoleViewModel.RoleId">
+            <summary>
+            Atribuir/Recuperar identificador da função.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserRoleViewModel.User">
+            <summary>
+            Atribuir/Recuperar objeto contendo as informações do usuário.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserRoleViewModel.UserId">
+            <summary>
+            Atribuir/Recuperar identificador do usuário.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Models.UserViewModel">
+            <summary>
+            Objeto representando os usuários.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserViewModel.Active">
+            <summary>
+            Atribuir/Recuperar indicativo se o usuário esta ativo ou não.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserViewModel.Name">
+            <summary>
+            Atribuir/Recuperar nome.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserViewModel.Password">
+            <summary>
+            Atribuir/Recuperar a senha do usuário.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserViewModel.PasswordHash">
+            <summary>
+            Atribuir/Recuperar hash calculado da senha.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserViewModel.Username">
+            <summary>
+            Atribuir/Recuperar usuário.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.Models.UserViewModel.UserRoles">
+            <summary>
+            Atribuir/Recuperar a coleção de funções do usuário.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Models.UserViewModel.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.PasswordStatus">
+            <summary>
+            Status da senha
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.RoleSearch">
+            <summary>
+            Objeto utilizado para especificar os argumentos de busca das funções.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.RoleSearch.Id">
+            <summary>
+            Atribuir/Recuperar identificador da função.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.RoleSearch.Name">
+            <summary>
+            Atribuir/Recuperar nome.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.UserSearch">
+            <summary>
+            Objeto utilizado para especificar os argumentos de busca dos usuários.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.UserSearch.Active">
+            <summary>
+            Atribuir/Recuperar indicativo se o usuário esta ativo ou não.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.UserSearch.Id">
+            <summary>
+            Atribuir/Recuperar identificador do usuário.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.UserSearch.Name">
+            <summary>
+            Atribuir/Recuperar nome.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Common.UserSearch.Username">
+            <summary>
+            Atribuir/Recuperar usuário.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.AddressValidator">
+            <summary>
+            Objeto responsável pela validação dos endereços.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.AddressValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.AuthenticationKeyValidator">
+            <summary>
+            Objeto responsável pela validação das chaves de autenticação.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.AuthenticationKeyValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.ChangePasswordRequestValidator">
+            <summary>
+            Objeto responsável pela validação dos dados de login.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.ChangePasswordRequestValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.ClientValidator">
+            <summary>
+            Objeto responsável pela validação dos clientes.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.ClientValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.LoginRequestValidator">
+            <summary>
+            Objeto responsável pela validação dos dados de login.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.LoginRequestValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.RoleValidator">
+            <summary>
+            Objeto responsável pela validação das funções do usuário.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.RoleValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.TelephoneValidator">
+            <summary>
+            Objeto responsável pela validação dos telefones.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.TelephoneValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.UserRoleValidator">
+            <summary>
+            Objeto responsável pela validação da associação das regras com os usuários.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.UserRoleValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Common.Validators.UserValidator">
+            <summary>
+            Objeto responsável pela validação dos usuários.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Common.Validators.UserValidator.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+    </members>
+</doc>

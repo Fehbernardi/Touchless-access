@@ -1,0 +1,2192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Touchless.Access.Services.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Touchless.Access.Services.Api.Controllers.AccountsController">
+            <summary>
+            Responsável pelas operações dos usuários.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AccountsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IAuthenticationService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="authenticationService">Objeto responsável pelas operações de autenticação.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AccountsController.ChangePasswordASync(Touchless.Access.Services.Common.Models.ChangePasswordRequestViewModel)">
+            <summary>
+            Realizar a mudança da senha.
+            </summary>
+            <param name="changePasswordRequestViewModel">Objeto contendo as informações da mudança de senha.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="401">Usuário não autorizado.</response>
+            <response code="404">Usuário não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AccountsController.LoginAsync(Touchless.Access.Services.Common.Models.LoginRequestViewModel)">
+            <summary>
+            Realizar o login de um determinado usuário.
+            </summary>
+            <param name="loginRequestViewModel">Objeto contendo as informações do login.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="401">Usuário não autorizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AccountsController.LogoutAsync">
+            <summary>
+            Realizar o logout do usuário.
+            </summary>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="401">Não autorizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AccountsController.RefreshTokenAsync(Touchless.Access.Services.Common.Models.RefreshTokenRequestViewModel)">
+            <summary>
+            Renovar o token de segurança.
+            </summary>
+            <param name="refreshTokenRequestViewModel">Objeto contendo as informações para a renovação do token.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="401">Não autorizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+            ///
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.AdaptersController">
+            <summary>
+            Responsável pelas operações dos adaptatores.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AdaptersController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IAdapterService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="adapterService">Objeto responsável pelas operações dos adaptadores.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AdaptersController.AddAsync(Touchless.Access.Services.Common.Models.AdapterViewModel)">
+            <summary>
+            Adicionar um novo adaptador.
+            </summary>
+            <param name="request">Objeto contendo as informações do adaptador.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AdaptersController.DeleteAsync(System.Int64)">
+            <summary>
+            Remover um adaptador.
+            </summary>
+            <param name="adapterId">Identificador do adaptador.</param>
+            <returns>Resultado da operação.</returns>
+            <returns></returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Adaptador não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AdaptersController.SearhAsync(Touchless.Access.Services.Common.AdapterSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) adaptador(es) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos adaptadores.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de adaptadores.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AdaptersController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.AdapterViewModel)">
+            <summary>
+             Atualizar um determindo adaptador.
+            </summary>
+            <param name="adapterId">Identificador do adaptador.</param>
+            <param name="request">Objeto contendo as informações do adaptador.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Adaptador não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.AlignmentsController">
+            <summary>
+            Responsável pelas operações dos parâmetros.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AlignmentsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IAlignmentService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>/// 
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="alignmentService">Objeto responsável pelas operações dos parâmetros.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AlignmentsController.AddAsync(Touchless.Access.Services.Common.Models.AlignmentViewModel)">
+            <summary>
+            Adicionar um novo grupo.
+            </summary>
+            <param name="request">Objeto contendo as informações do grupo.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AlignmentsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remover um parâmetro.
+            </summary>
+            <param name="alignmentId">Identificador do grupo.</param>
+            <returns>Resultado da operação.</returns>
+            <returns></returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AlignmentsController.SearhAsync(Touchless.Access.Services.Common.AlignmentSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) grupo(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos grupos.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de grupos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AlignmentsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.AlignmentViewModel)">
+            <summary>
+            Atualizar um determindo parâmetro.
+            </summary>
+            <param name="alignmentId">Identificador do parâmetro.</param>
+            <param name="request">Objeto contendo as informações do parâmetro.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.AuthenticationKeysController">
+            <summary>
+            Responsável pelas operações das chaves de autenticação.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AuthenticationKeysController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IAuthenticationKeyService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="authenticationKeyService">Objeto responsável pelas operações das chaves de autenticação.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AuthenticationKeysController.AddAsync(Touchless.Access.Services.Common.Models.AuthenticationKeyViewModel)">
+            <summary>
+            Adicionar uma nova chave de autenticação.
+            </summary>
+            <param name="request">Objeto contendo as informações da chave de autenticação.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AuthenticationKeysController.DeleteAsync(System.Int64)">
+            <summary>
+            Remover uma chave de autenticação.
+            </summary>
+            <param name="authenticationKeyId">Identificador da chave de autenticação.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Chave de autenticação não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AuthenticationKeysController.SearhAsync(Touchless.Access.Services.Common.AuthenticationKeySearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar a(s) chave(s) de autenticação que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca das chaves de autenticação.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de chaves de autenticação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.AuthenticationKeysController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.AuthenticationKeyViewModel)">
+            <summary>
+            Atualizar uma determinda chave de autenticação.
+            </summary>
+            <param name="authenticationKeyId">Identificador da chave de autenticação.</param>
+            <param name="request">Objeto contendo as informações da chave de autenticação.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Adaptador não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.CarriersController">
+            <summary>
+            Responsável pelas operações dos endereços das transportadoras.
+            </summary>
+            <summary>
+            Responsável pelas operações das transportadoras.
+            </summary>
+            <summary>
+            Responsável pelas operações dos eventos das transportadoras.
+            </summary>
+            <summary>
+            Responsável pelas operações dos bloqueios das transportadoras.
+            </summary>
+            <summary>
+            Responsável pelas operações dos telefones das transportadoras.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.AddAddressAsync(System.Int64,Touchless.Access.Services.Common.Models.AddressViewModel)">
+            <summary>
+            Adicionar um novo endereço para a transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="request">Objeto contendo as informações do endereço.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.DeleteAddressAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um endereço da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="addressId">Identificador do endereço.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora/Endereço não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.ListAddressesAsync(System.Int64)">
+            <summary>
+            Retornar os endereços da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <returns>Coleção de endereços.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.UpdateAddressAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.AddressViewModel)">
+            <summary>
+            Atualizar um determinado endereço da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="addressId">Identificador do endereço.</param>
+            <param name="request">Objeto contendo as informações do endereço.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora/Endereço não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.ICarrierService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>/// 
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="carrierService">Objeto responsável pelas operações das transportadoras.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.AddAsync(Touchless.Access.Services.Common.Models.CarrierViewModel)">
+            <summary>
+            Adicionar uma nova transportadora.
+            </summary>
+            <param name="request">Objeto contendo as informações da transportadora.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Já existe uma transportadora cadastrada com esse CNPJ.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.SearhAsync(Touchless.Access.Services.Common.CarrierSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar a(s) transportadora(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca das transportadoras.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de transportadoras.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.CarrierViewModel)">
+            <summary>
+            Atualizar uma determinda transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="request">Objeto contendo as informações da transportadora.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.AddEventAsync(System.Int64,Touchless.Access.Services.Common.Models.EventViewModel)">
+            <summary>
+            Adicionar um novo evento para a transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="request">Objeto contendo as informações do evento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.DeleteEventAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um evento da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="eventId">Identificador do evento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora/Evento não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.ListEventsAsync(System.Int64)">
+            <summary>
+            Retornar os eventos da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <returns>Coleção de eventos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.UpdateEventAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.EventViewModel)">
+            <summary>
+            Atualizar um determinado evento da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="eventId">Identificador do evento.</param>
+            <param name="request">Objeto contendo as informações do evento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora/Evento não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.AddLockAsync(System.Int64,Touchless.Access.Services.Common.Models.LockViewModel)">
+            <summary>
+            Adicionar um novo bloqueio para a transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="request">Objeto contendo as informações do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.DeleteLockAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um bloqueio da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="lockId">Identificador do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora/Bloqueio não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.ListLocksAsync(System.Int64)">
+            <summary>
+            Retornar os bloqueios da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <returns>Coleção de bloqueios.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.UpdateLockAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.LockViewModel)">
+            <summary>
+            Atualizar um determinado bloqueio da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="lockId">Identificador do bloqueio.</param>
+            <param name="request">Objeto contendo as informações do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora/Bloqueio não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.AddTelephoneAsync(System.Int64,Touchless.Access.Services.Common.Models.TelephoneViewModel)">
+            <summary>
+            Adicionar um novo telefone para a transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="request">Objeto contendo as informações do telefone.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.DeleteTelephoneAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um telefone da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="telephoneId">Identificador do telefone.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora/Telefone não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.ListTelephonesAsync(System.Int64)">
+            <summary>
+            Retornar os telefones da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <returns>Coleção de telefones.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CarriersController.UpdateTelephoneAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.TelephoneViewModel)">
+            <summary>
+            Adicionar um determinado telefone da transportadora.
+            </summary>
+            <param name="carrierId">Identificador da transportadora.</param>
+            <param name="telephoneId">Identificador do telefone.</param>
+            <param name="request">Objeto contendo as informações do endereço.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora/Telefone não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.CustomersController">
+            <summary>
+            Responsável pelas operações dos endereços dos clientes.
+            </summary>
+            <summary>
+            Responsável pelas operações dos clientes.
+            </summary>
+            <summary>
+            Responsável pelas operações dos telefones dos clientes.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.AddAddressAsync(System.Int64,Touchless.Access.Services.Common.Models.AddressViewModel)">
+            <summary>
+            Adicionar um novo endereço para o cliente.
+            </summary>
+            <param name="customerId">Identificador do cliente.</param>
+            <param name="request">Objeto contendo as informações do endereço.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Cliente não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.DeleteAddressAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um endereço do cliente.
+            </summary>
+            <param name="customerId">Identificador do cliente.</param>
+            <param name="addressId">Identificador do endereço.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Cliente/Endereço não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.ListAddressesAsync(System.Int64)">
+            <summary>
+            Retornar os endereços do cliente.
+            </summary>
+            <param name="customerId">Identificador do cliente.</param>
+            <returns>Coleção de endereços.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.UpdateAddressAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.AddressViewModel)">
+            <summary>
+            Atualizar um determinado endereço do cliente.
+            </summary>
+            <param name="customerId">Identificador do cliente.</param>
+            <param name="addressId">Identificador do endereço.</param>
+            <param name="request">Objeto contendo as informações do endereço.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Cliente/Endereço não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.ICustomerService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="customerService">Objeto responsável pelas operações dos clientes.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.AddAsync(Touchless.Access.Services.Common.Models.CustomerViewModel)">
+            <summary>
+            Adicionar um novo cliente.
+            </summary>
+            <param name="request">Objeto contendo as informações do cliente.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Já existe um cliente cadastrado com esse CNPJ.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.SearhAsync(Touchless.Access.Services.Common.CustomerSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) cliente(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos clientes.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de clientes.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.CustomerViewModel)">
+            <summary>
+            Atualizar um determindo cliente.
+            </summary>
+            <param name="customerId">Identificador do cliente.</param>
+            <param name="request">Objeto contendo as informações do cliente.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Cliente não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.AddTelephoneAsync(System.Int64,Touchless.Access.Services.Common.Models.TelephoneViewModel)">
+            <summary>
+            Adicionar um novo telefone para o cliente.
+            </summary>
+            <param name="customerId">Identificador do cliente.</param>
+            <param name="request">Objeto contendo as informações do telefone.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Cliente não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.DeleteTelephoneAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um telefone do cliente.
+            </summary>
+            <param name="customerId">Identificador do cliente.</param>
+            <param name="telephoneId">Identificador do telefone.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Cliente/Telefone não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.ListTelephonesAsync(System.Int64)">
+            <summary>
+            Retornar os telefones do cliente.
+            </summary>
+            <param name="customerId">Identificador da cliente.</param>
+            <returns>Coleção de telefones.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.CustomersController.UpdateTelephoneAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.TelephoneViewModel)">
+            <summary>
+            Adicionar um determinado telefone do cliente.
+            </summary>
+            <param name="customerId">Identificador do cliente.</param>
+            <param name="telephoneId">Identificador do telefone.</param>
+            <param name="request">Objeto contendo as informações do endereço.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Cliente/Telefone não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.DriversController">
+            <summary>
+            Responsável pelas operações dos motoristas.
+            </summary>
+            <summary>
+            Responsável pelas operações dos eventos dos motoristas.
+            </summary>
+            <summary>
+            Responsável pelas operações dos bloqueios dos motoristas.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IDriverService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="driverService">Objeto responsável pelas operações dos motoristas.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.AddAsync(Touchless.Access.Services.Common.Models.DriverViewModel)">
+            <summary>
+            Adicionar um novo motorista.
+            </summary>
+            <param name="request">Objeto contendo as informações do motorista.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Já existe um motorista cadastrado com esse CPF.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.SearhAsync(Touchless.Access.Services.Common.DriverSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) motorista(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos motoristas.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de motoristas.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.DriverViewModel)">
+            <summary>
+            Atualizar um determindo motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <param name="request">Objeto contendo as informações do motorista.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Motorista não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.AddEventAsync(System.Int64,Touchless.Access.Services.Common.Models.EventViewModel)">
+            <summary>
+            Adicionar um novo evento para o motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <param name="request">Objeto contendo as informações do motorista.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.DeleteEventAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um evento do motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <param name="eventId">Identificador do evento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Motorista/Evento não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.ListEventsAsync(System.Int64)">
+            <summary>
+            Retornar os eventos do motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <returns>Coleção de eventos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.UpdateEventAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.EventViewModel)">
+            <summary>
+            Atualizar um determinado evento do motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <param name="eventId">Identificador do evento.</param>
+            <param name="request">Objeto contendo as informações do evento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Motorista/Evento não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.AddLockAsync(System.Int64,Touchless.Access.Services.Common.Models.LockViewModel)">
+            <summary>
+            Adicionar um novo bloqueio para o motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <param name="request">Objeto contendo as informações do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Motorista não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.DeleteLockAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um bloqueio do motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <param name="lockId">Identificador do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Motorista/Bloqueio não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.ListLocksAsync(System.Int64)">
+            <summary>
+            Retornar os bloqueios do motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <returns>Coleção de bloqueios.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.DriversController.UpdateLockAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.LockViewModel)">
+            <summary>
+            Atualizar um determinado bloqueio do motorista.
+            </summary>
+            <param name="driverId">Identificador do motorista.</param>
+            <param name="lockId">Identificador do bloqueio.</param>
+            <param name="request">Objeto contendo as informações do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Motorista/Bloqueio não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.GroupsController">
+            <summary>
+            Responsável pelas operações dos parâmetros.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.GroupsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IGroupService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>/// 
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="groupService">Objeto responsável pelas operações dos parâmetros.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.GroupsController.AddAsync(Touchless.Access.Services.Common.Models.GroupViewModel)">
+            <summary>
+            Adicionar um novo grupo.
+            </summary>
+            <param name="request">Objeto contendo as informações do grupo.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.GroupsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remover um parâmetro.
+            </summary>
+            <param name="groupId">Identificador do grupo.</param>
+            <returns>Resultado da operação.</returns>
+            <returns></returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.GroupsController.SearhAsync(Touchless.Access.Services.Common.GroupSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) grupo(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos grupos.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de grupos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.GroupsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.GroupViewModel)">
+            <summary>
+            Atualizar um determindo parâmetro.
+            </summary>
+            <param name="groupId">Identificador do parâmetro.</param>
+            <param name="request">Objeto contendo as informações do parâmetro.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.NotificationsController">
+            <summary>
+            Responsável pelas operações das notificações.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.NotificationsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.INotificationService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="notificationService">Objeto responsável pelas operações das notificações.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.NotificationsController.AddAsync(Touchless.Access.Services.Common.Models.NotificationViewModel)">
+            <summary>
+            Adicionar uma nova notificação.
+            </summary>
+            <param name="request">Objeto contendo as informações da notificação.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="401">Usuário não autorizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.NotificationsController.SearhAsync(Touchless.Access.Services.Common.NotificationSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) função(es) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca das notificações.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de notificações.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="401">Usuário não autorizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.NotificationsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.NotificationViewModel)">
+            <summary>
+            Atualizar uma determinda notificação.
+            </summary>
+            <param name="notificationId">Identificador único da notificação.</param>
+            <param name="request">Objeto contendo as informações da notificação.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="401">Usuário não autorizado.</response>
+            <response code="404">Notificação não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.OrdersController">
+            <summary>
+            Responsável pelas operações das ordens.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.AddPresetProductAsync(System.Int64,Touchless.Access.Services.Common.Models.BatchViewModel)">
+            <summary>
+            Adicionar um novo batch.
+            </summary>
+            <param name="orderId">Identificador da ordem.</param>
+            <param name="request">>Objeto contendo as informações do batch.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Ordem não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IOrderService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="orderService">Objeto responsável pelas operações das ordens.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.AddAsync(Touchless.Access.Services.Common.Models.OrderViewModel)">
+            <summary>
+            Adicionar uma nova ordem.
+            </summary>
+            <param name="request">Objeto contendo as informações da ordem.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.SearhAsync(Touchless.Access.Services.Common.OrderSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar a(s) ordem(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca das ordens.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de ordens.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.OrderViewModel)">
+            <summary>
+            Atualizar uma determinada ordem.
+            </summary>
+            <param name="orderId">Identificador da ordem.</param>
+            <param name="request">Objeto contendo as informações da ordem.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Ordem não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.AddLockAsync(System.Int64,Touchless.Access.Services.Common.Models.LockViewModel)">
+            <summary>
+            Adicionar um novo bloqueio para a ordem.
+            </summary>
+            <param name="orderId">Identificador da ordem.</param>
+            <param name="request">Objeto contendo as informações do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Ordem não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.DeleteLockAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um bloqueio da ordem.
+            </summary>
+            <param name="orderId">Identificador da ordem.</param>
+            <param name="lockId">Identificador do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Ordem/Bloqueio não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.ListLocksAsync(System.Int64)">
+            <summary>
+            Retornar os bloqueios da ordem.
+            </summary>
+            <param name="orderId">Identificador da ordem.</param>
+            <returns>Coleção de bloqueios.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.OrdersController.UpdateLockAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.LockViewModel)">
+            <summary>
+            Atualizar um determinado bloqueio da ordem.
+            </summary>
+            <param name="orderId">Identificador da ordem.</param>
+            <param name="lockId">Identificador do bloqueio.</param>
+            <param name="request">Objeto contendo as informações do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Ordem/Bloqueio não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.ParametersController">
+            <summary>
+            Responsável pelas operações dos parâmetros.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ParametersController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IParameterService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>/// 
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="parameterService">Objeto responsável pelas operações dos parâmetros.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ParametersController.AddAsync(Touchless.Access.Services.Common.Models.ParameterViewModel)">
+            <summary>
+            Adicionar um novo parâmetro.
+            </summary>
+            <param name="request">Objeto contendo as informações do parâmetro.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ParametersController.DeleteAsync(System.Int64)">
+            <summary>
+            Remover um parâmetro.
+            </summary>
+            <param name="parameterId">Identificador do parâmetro.</param>
+            <returns>Resultado da operação.</returns>
+            <returns></returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ParametersController.SearhAsync(Touchless.Access.Services.Common.ParameterSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) parâmetro(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos parâmetros.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de parâmetros.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ParametersController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.ParameterViewModel)">
+            <summary>
+            Atualizar um determindo parâmetro.
+            </summary>
+            <param name="parameterId">Identificador do parâmetro.</param>
+            <param name="request">Objeto contendo as informações do parâmetro.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.PresetConfigurationsController">
+            <summary>
+            Responsável pelas operações das configurações dos presets.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetConfigurationsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IPresetConfigurationService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="presetConfigurationService">Objeto responsável pelas operações das configurações dos presets do equipamento.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetConfigurationsController.AddAsync(Touchless.Access.Services.Common.Models.PresetConfigurationViewModel)">
+            <summary>
+            Adicionar uma nova configuração de preset.
+            </summary>
+            <param name="request">Objeto contendo as informações da configuração do preset.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetConfigurationsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remover uma configuração de preset.
+            </summary>
+            <param name="equipmentConnectionId">Identificador da configuração de preset.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Configuração de preset não localizado.</response>
+            <response code="409">Configuração de preset associada a um ou mais presets.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetConfigurationsController.SearhAsync(Touchless.Access.Services.Common.PresetConfigurationSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar a(s) configuração(es) do(s) preset(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca das configurações do preset.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de configurações do preset.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetConfigurationsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.PresetConfigurationViewModel)">
+            <summary>
+            Atualizar uma determinada configuração do preset.
+            </summary>
+            <param name="equipmentConnectionId">Identificador da configuração do preset.</param>
+            <param name="request">Objeto contendo as informações da configuração do preset.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Adaptador não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.PresetsController">
+            <summary>
+            Responsável pelas operações dos presets.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IPresetService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="presetService">Objeto responsável pelas operações do preset do equipamento.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.AddAsync(Touchless.Access.Services.Common.Models.PresetViewModel)">
+            <summary>
+            Adicionar um novo preset.
+            </summary>
+            <param name="request">Objeto contendo as informações do preset.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.SearhAsync(Touchless.Access.Services.Common.PresetSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) preset(es) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos presets.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de presets.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.PresetViewModel)">
+            <summary>
+            Atualizar um determindo preset.
+            </summary>
+            <param name="stationMeasurementId">Identificador do preset.</param>
+            <param name="request">Objeto contendo as informações do preset.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Adaptador não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.AddPresetProductAsync(System.Int64,Touchless.Access.Services.Common.Models.PresetProductViewModel)">
+            <summary>
+            Adicionar um novo produto ao preset.
+            </summary>
+            <param name="stationMeasurementId">Identificador do preset.</param>
+            <param name="request">>Objeto contendo as informações do produto</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.DeletePresetProductAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um produto do preset.
+            </summary>
+            <param name="stationMeasurementId">Identificador do preset.</param>
+            <param name="productId">Identificador do produto relacionado ao preset.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Preset/Produto não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.ListPresetProductsAsync(System.Int64)">
+            <summary>
+            Retornar os produtos associados ao preset.
+            </summary>
+            <param name="stationMeasurementId">Identificador do preset.</param>
+            <returns>Coleção de produtos associados ao preset.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.AddPresetSummaryAsync(System.Int64,Touchless.Access.Services.Common.Models.PresetSummaryViewModel)">
+            <summary>
+            Adicionar um novo sumário ao preset.
+            </summary>
+            <param name="stationMeasurementId">Identificador do preset.</param>
+            <param name="request">Objeto contendo as informações do sumário.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.DeletePresetSummaryAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um sumario do preset.
+            </summary>
+            <param name="stationMeasurementId">Identificador do preset.</param>
+            <param name="summaryId">Identificador do sumário relacionado ao preset.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Preset/Sumário não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PresetsController.ListPresetSummariesAsync(System.Int64)">
+            <summary>
+            Retornar todos os sumários associados ao preset.
+            </summary>
+            <param name="stationMeasurementId">Identificador do preset.</param>
+            <returns>Coleção de sumários associados ao preset.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.ProductsController">
+            <summary>
+            Responsável pelas operações dos produtos.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ProductsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IProductService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="productService">Objeto responsável pelas operações dos produtos.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ProductsController.AddAsync(Touchless.Access.Services.Common.Models.ProductViewModel)">
+            <summary>
+            Adicionar um novo produto.
+            </summary>
+            <param name="request">Objeto contendo as informações do produto.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ProductsController.SearhAsync(Touchless.Access.Services.Common.ProductSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) produto(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos produtos.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de produtos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ProductsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.ProductViewModel)">
+            <summary>
+            Atualizar um determindo produto.
+            </summary>
+            <param name="productId">Identificador do produto.</param>
+            <param name="request">Objeto contendo as informações do produto.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Produto não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ProductsController.AddProductCompositionAsync(System.Int64,Touchless.Access.Services.Common.Models.ProductCompositionViewModel)">
+            <summary>
+            Adicionar um novo produto composto ao produto.
+            </summary>
+            <param name="productId">Identificador do product.</param>
+            <param name="request">Objeto contendo as informações do produto composto.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Transportadora não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ProductsController.DeleteProductCompositionAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um produto composto do produto.
+            </summary>
+            <param name="productId">Identificador do produto.</param>
+            <param name="productCompositionId">Identificador do produto composto relacionado ao produto.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Product/Produto Composto não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.PumpAlignmentsController">
+            <summary>
+            Responsável pelas operações da relação entre alinhamento e bomba.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpAlignmentsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IPumpAlignmentService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>/// 
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="pumpAlignmentService">Objeto responsável pelas operações da relação entre alinhamento e bomba.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpAlignmentsController.AddAsync(Touchless.Access.Services.Common.Models.PumpAlignmentViewModel)">
+            <summary>
+            Adicionar um novo grupo.
+            </summary>
+            <param name="request">Objeto contendo as informações da relação entre alinhamento e bomba.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpAlignmentsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remover um parâmetro.
+            </summary>
+            <param name="pumpAlignmentId">Identificador dda relação entre alinhamento e bomba.</param>
+            <returns>Resultado da operação.</returns>
+            <returns></returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpAlignmentsController.SearhAsync(Touchless.Access.Services.Common.PumpAlignmentSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) grupo(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca da relação entre alinhamento e bombas.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de grupos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpAlignmentsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.PumpAlignmentViewModel)">
+            <summary>
+            Atualizar um determindo parâmetro.
+            </summary>
+            <param name="pumpAlignmentId">Identificador da relação entre alinhamento e bomba.</param>
+            <param name="request">Objeto contendo as informações do parâmetro.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.PumpsController">
+            <summary>
+            Responsável pelas operações dos parâmetros.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IPumpService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>/// 
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="pumpService">Objeto responsável pelas operações dos parâmetros.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpsController.AddAsync(Touchless.Access.Services.Common.Models.PumpViewModel)">
+            <summary>
+            Adicionar um novo grupo.
+            </summary>
+            <param name="request">Objeto contendo as informações do grupo.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remover um parâmetro.
+            </summary>
+            <param name="pumpId">Identificador do grupo.</param>
+            <returns>Resultado da operação.</returns>
+            <returns></returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpsController.SearhAsync(Touchless.Access.Services.Common.PumpSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) grupo(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos grupos.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de grupos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.PumpsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.PumpViewModel)">
+            <summary>
+            Atualizar um determindo parâmetro.
+            </summary>
+            <param name="pumpId">Identificador do parâmetro.</param>
+            <param name="request">Objeto contendo as informações do parâmetro.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Parâmetro não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.RolesController">
+            <summary>
+            Responsável pelas operações das funções dos usuários.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.RolesController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IRoleService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="roleService">Objeto responsável pelas operações das funções dos usuários.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.RolesController.AddAsync(Touchless.Access.Services.Common.Models.RoleViewModel)">
+            <summary>
+            Adicionar uma nova função.
+            </summary>
+            <param name="request">Objeto contendo as informações da função.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.RolesController.SearhAsync(Touchless.Access.Services.Common.RoleSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) função(es) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca das funções.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de funções.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.RolesController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.RoleViewModel)">
+            <summary>
+            Atualizar uma determinda função.
+            </summary>
+            <param name="roleId">Identificador da função.</param>
+            <param name="request">Objeto contendo as informações da função.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Função não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.RolesController.GetUsersAsync(System.Int64)">
+            <summary>
+            Retornar os usuários associados a função.
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Função não localizada.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.UsersController">
+            <summary>
+            Responsável pelas operações dos usuários.
+            </summary>
+            <summary>
+            Responsável pelas operações das funções dos usuários.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.UsersController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IUserService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="userService">Objeto responsável pelas operações dos usuários.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.UsersController.AddAsync(Touchless.Access.Services.Common.Models.UserViewModel)">
+            <summary>
+            Adicionar um novo usuário.
+            </summary>
+            <param name="request">Objeto contendo as informações do usuário.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.UsersController.SearhAsync(Touchless.Access.Services.Common.UserSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) usuário(es) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos usuários.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de usuários.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.UsersController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.UserViewModel)">
+            <summary>
+            Atualizar um determindo usuário.
+            </summary>
+            <param name="userId">Identificador do usuário.</param>
+            <param name="request">Objeto contendo as informações do usuário.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Usuário não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.UsersController.AddRoleAsync(System.Int64,Touchless.Access.Services.Common.Models.UserRoleViewModel)">
+            <summary>
+            Adicionar uma nova função para o usuário.
+            </summary>
+            <param name="userId">Identificador do usuário.</param>
+            <param name="request">Objeto contendo as informações da função.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Usuário/Função não localizado(a).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.UsersController.ListAsync(System.Int64)">
+            <summary>
+            Retornar as funções do usuário.
+            </summary>
+            <returns>Coleção de funções.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.UsersController.DeleteRoleAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover uma função do usuário.
+            </summary>
+            <param name="userId">Identificador do usuário.</param>
+            <param name="roleId">Identificador da função.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Usuário/Função não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.VehicleCompositionsController">
+            <summary>
+            Responsável pelas composições dos veiculos.
+            </summary>
+            <summary>
+            Responsável pelas operações dos composição dos veículos.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehicleCompositionsController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IVehicleCompositionService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="VehicleCompositionService">Objeto responsável pelas operações dos veículos.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehicleCompositionsController.AddAsync(Touchless.Access.Services.Common.Models.VehicleCompositionViewModel)">
+            <summary>
+            Adicionar um novo veículo.
+            </summary>
+            <param name="request">Objeto contendo as informações do veiculo.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Já existe um veículo cadastrado com essa placa.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehicleCompositionsController.SearhAsync(Touchless.Access.Services.Common.VehicleCompositionSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) veículo(s) composto(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos veículos compostos.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de veículos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehicleCompositionsController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.VehicleCompositionViewModel)">
+            <summary>
+            Atualizar um determindo veículo.
+            </summary>
+            <param name="VehicleCompositionId">Identificador do veículo.</param>
+            <param name="request">Objeto contendo as informações do veículo.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehicleCompositionsController.AddCompositionAsync(System.Int64,Touchless.Access.Services.Common.Models.VehicleCompositionChildViewModel)">
+            <summary>
+            Adicionar um novo composição para o veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="request">Objeto contendo as informações do composição.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehicleCompositionsController.DeleteCompositionAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um composição do veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="CompositionId">Identificador do composição.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo/composição não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.VehiclesController">
+            <summary>
+            Responsável pelas operações dos Compartimento dos veículos.
+            </summary>
+            <summary>
+            Responsável pelas operações dos veiculos.
+            </summary>
+            <summary>
+            Responsável pelas operações dos eventos dos veículos.
+            </summary>
+            <summary>
+            Responsável pelas operações dos bloqueios dos veículos.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.AddCompartmentAsync(System.Int64,Touchless.Access.Services.Common.Models.VehicleCompartmentViewModel)">
+            <summary>
+            Adicionar um novo Compartimento para o veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="request">Objeto contendo as informações do Compartimento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.DeleteCompartmentAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um Compartimento do veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="CompartmentId">Identificador do Compartimento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo/Compartimento não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Zylix.Sgt.Services.Interfaces.IVehicleService)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="vehicleService">Objeto responsável pelas operações dos veículos.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.AddAsync(Touchless.Access.Services.Common.Models.VehicleViewModel)">
+            <summary>
+            Adicionar um novo veículo.
+            </summary>
+            <param name="request">Objeto contendo as informações do veiculo.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="409">Já existe um veículo cadastrado com essa placa.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.SearhAsync(Touchless.Access.Services.Common.VehicleSearch,Touchless.Access.Pagination.ResourceParameters)">
+            <summary>
+            Retornar o(s) veículo(s) que atenda(m) o(s) filtro(s) especificado(s).
+            </summary>
+            <param name="search">Objeto utilizado para especificar os argumentos de busca dos veículos.</param>
+            <param name="parameters">Objeto utilizado para especificar os parâmetros da paginação dos dados.</param>
+            <returns>Coleção de veículos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.UpdateAsync(System.Int64,Touchless.Access.Services.Common.Models.VehicleViewModel)">
+            <summary>
+            Atualizar um determindo veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="request">Objeto contendo as informações do veículo.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.AddEventAsync(System.Int64,Touchless.Access.Services.Common.Models.EventViewModel)">
+            <summary>
+            Adicionar um novo evento para o veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="request">Objeto contendo as informações do veículo.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.DeleteEventAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um evento do veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="eventId">Identificador do evento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo/Evento não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.ListEventsAsync(System.Int64)">
+            <summary>
+            Retornar os eventos do veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <returns>Coleção de eventos.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.UpdateEventAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.EventViewModel)">
+            <summary>
+            Atualizar um determinado evento do veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="eventId">Identificador do evento.</param>
+            <param name="request">Objeto contendo as informações do evento.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo/Evento não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.AddLockAsync(System.Int64,Touchless.Access.Services.Common.Models.LockViewModel)">
+            <summary>
+            Adicionar um novo bloqueio para o veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="request">Objeto contendo as informações do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo não localizado.</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.DeleteLockAsync(System.Int64,System.Int64)">
+            <summary>
+            Remover um bloqueio do veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="lockId">Identificador do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo/Bloqueio não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.ListLocksAsync(System.Int64)">
+            <summary>
+            Retornar os bloqueios do veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <returns>Coleção de bloqueios.</returns>
+            <response code="200">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.VehiclesController.UpdateLockAsync(System.Int64,System.Int64,Touchless.Access.Services.Common.Models.LockViewModel)">
+            <summary>
+            Atualizar um determinado bloqueio do veículo.
+            </summary>
+            <param name="vehicleId">Identificador do veículo.</param>
+            <param name="lockId">Identificador do bloqueio.</param>
+            <param name="request">Objeto contendo as informações do bloqueio.</param>
+            <returns>Resultado da operação.</returns>
+            <response code="204">Resultado da operação.</response>
+            <response code="400">Parâmetro(s) inválido(s).</response>
+            <response code="404">Veículo/Bloqueio não localizada(o).</response>
+            <response code="500">Ocorreu um erro não esperado na execução da operação.</response>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.LoggerFactory">
+            <summary>
+            Atribuir/Recuperar objeto responsável por criar um Logger.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.Logger">
+            <summary>
+            Recuperar objeto responsável pelo log das informações.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.CacheRedis">
+            <summary>
+            Atribuir/Recuperar objetos responsável pelo Cache Redis.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.Configuration">
+            <summary>
+            Atribuir/Recuperar o objeto contendo as configurações.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.ContextAccessor">
+            <summary>
+            Atribuir/Recuperar objeto responsável pelo acesso a requisicao HTTP.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.Environment">
+            <summary>
+            Atribuir/Recuperar o objeto contendo as informações do ambiente.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.Mapper">
+            <summary>
+            Atribuir/Recuperar objeto responsável pelo mapeamento dos objetos.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+            <param name="configuration">Objeto contendo as configurações.</param>
+            <param name="environment">Objeto contendo as informações do ambiente.</param>
+            <param name="mapper">Objeto responsável pelo mapeamento dos objetos.</param>
+            <param name="contextAccessor">Objeto responsável pelo acesso a requisicao HTTP.</param>
+            <param name="cacheRedis">Objeto responsável pelo gerenciamento do cache Redis.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.GetErrorResult(System.String,System.Exception)">
+            <summary>
+            Retornar o objeto <see cref="T:Touchless.Access.Services.Api.Results.GenericError" /> contendo o detalhamento do erro.
+            </summary>
+            <param name="message">Mensagem de descrição do erro.</param>
+            <param name="exception">Objeto contendo as informações da exceção.</param>
+            <returns>Objeto <see cref="T:Touchless.Access.Services.Api.Results.GenericError" /> contendo o detalhamento do erro.</returns>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Controllers.ZylixControllerBase`1.AddPaginationHeader``1(Touchless.Access.Pagination.PagedList{``0})">
+            <summary>
+            Criar o resultado com os dados paginado da solicitação.
+            </summary>
+            <typeparam name="O">Tipo do objeto.</typeparam>
+            <param name="value">Coleção contendo os dados de forma paginada.</param>
+            <returns>Mensagem de resposta.</returns>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Hubs.NotificationHub">
+            <summary>
+            Objeto responsável pelo envio das notificações.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Hubs.NotificationHub.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="loggerFactory">Objeto responsável por criar um Logger.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Hubs.NotificationHub.OnConnectedAsync">
+            <summary>
+            Método executado quando um cliente é conectado ao Hub.
+            </summary>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Hubs.NotificationHub.OnDisconnectedAsync(System.Exception)">
+            <summary>
+            Método executado quando um cliente é desconectado do Hub.
+            </summary>
+            <param name="exception">Objeto contendo as informações do erro.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Hubs.NotificationHub.SendMessage(Zylix.Hub.Common.Models.NotificationMessage)">
+            <summary>
+            Enviar a mensagem de notificação.
+            </summary>
+            <param name="notificationMessage">Objeto contendo as informações da notificação.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Mappings.DomainToViewModelMappingProfile">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Mappings.DomainToViewModelMappingProfile.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Mappings.ViewModelToDomainMappingProfile">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Mappings.ViewModelToDomainMappingProfile.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Program">
+            <summary>
+            Classe responsável pela criação/configuração da aplicação.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Criar o objeto que hospedará a aplicação.
+            </summary>
+            <returns>Interface do objeto criado.</returns>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Program.OnUnhandledException(System.Object,System.UnhandledExceptionEventArgs)">
+            <summary>
+            Método disparado quando houver um exceção na tratada na aplicação.
+            </summary>
+            <param name="sender">Ojeto que gerou a exceção.</param>
+            <param name="eventArgs">Argumento contendo as informações sobre a exceção.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Program.Main(System.String[])">
+            <summary>
+            Função principal da aplicação.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Results.ApiError">
+            <summary>
+            Classe responsável pela representação dos erros ocorridos nas operações da API.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Results.ApiError.Message">
+            <summary>
+            Atribuir/Recuperar a mensagem do erro.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Results.ApiError.StatusCode">
+            <summary>
+            Atribuir/Recuperar o código do status HTTP.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Results.ApiError.StatusDescription">
+            <summary>
+            Atribuir/Recuperar a descrição do status HTTP.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.ApiError.#ctor(System.Int32,System.String)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="statusCode">Código do status HTTP.</param>
+            <param name="statusDescription">Descrição do status HTTP.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.ApiError.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="statusCode">Código do status HTTP.</param>
+            <param name="statusDescription">Descrição do status HTTP.</param>
+            <param name="message">Mensagem do erro.</param>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Results.BadRequestError">
+            <summary>
+            Classe responsável pela representação dos erros quando uma requisição é realizada de forma incorreta.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.BadRequestError.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.BadRequestError.#ctor(System.String)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="message">Mensagem do erro.</param>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Results.ConflictError">
+            <summary>
+            Classe responsável pela representação dos erros quando um recurso já existe.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.ConflictError.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.ConflictError.#ctor(System.String)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="message">Mensagem do erro.</param>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Results.GenericError">
+            <summary>
+            Objeto responsável pela representação do erro de processamento da requisição.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Results.GenericError.InnerError">
+            <summary>
+            Atribuir/Recuperar coleção de informações mais específicas sobre o erro.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Results.GenericError.Message">
+            <summary>
+            Atribuir/Recuperar a descrição do erro.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Results.GenericError.StackTrace">
+            <summary>
+            Atribuir/Recuperar a pilha de execução.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.GenericError.ToString">
+            <summary>
+            Retornar uma string que representa o objeto corrente.
+            </summary>
+            <returns>String que representa o objeto corrente.</returns>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Results.InternalServerError">
+            <summary>
+            Classe responsável pela representação dos erros internos ocorridos no servidor.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.InternalServerError.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.InternalServerError.#ctor(System.String)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="message">Mensagem do erro.</param>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Results.NotFoundError">
+            <summary>
+            Classe responsável pela representação dos erros quando um recurso não é encontrado.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.NotFoundError.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.NotFoundError.#ctor(System.String)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="message">Mensagem do erro.</param>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Results.UnauthorizedError">
+            <summary>
+            Classe responsável pela representação dos erros quando a operação não é autorizada.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.UnauthorizedError.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Results.UnauthorizedError.#ctor(System.String)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="message">Mensagem do erro.</param>
+        </member>
+        <member name="T:Touchless.Access.Services.Api.Startup">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Startup.Configuration">
+            <summary>
+            Recuperar objeto contendo as configurações.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Services.Api.Startup.Environment">
+            <summary>
+            Recuperar objeto contendo informações sobre o ambiente.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Startup.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="environment">Ambiente utilizado.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configurar a aplicação.
+            </summary>
+            <param name="application">Objeto de criação da aplicação.</param>
+            <param name="environment">Ambiente utilizado.</param>
+        </member>
+        <member name="M:Touchless.Access.Services.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configurar os serviços.
+            </summary>
+            <param name="services">Coleção de serviços.</param>
+        </member>
+    </members>
+</doc>

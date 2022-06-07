@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Touchless.Access.Authentication</name>
+    </assembly>
+    <members>
+        <member name="T:Touchless.Access.Authentication.ApiKeyAuthenticationExtensions">
+            <summary>
+            Objeto responsavel por disponibilizar métodos para adicionar o suporte a autenticação através de chave de API.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.ApiKeyAuthenticationExtensions.AddApiKeySupport(Microsoft.AspNetCore.Authentication.AuthenticationBuilder)">
+            <summary>
+            Adicionar o suporte a autenticação através de chave de API.
+            </summary>
+            <param name="authenticationBuilder">Objeto responsável pela configuração da autenticação.</param>
+            <returns>Objeto responsável pela configuração da autenticação.</returns>
+        </member>
+        <member name="T:Touchless.Access.Authentication.ApiKeyAuthenticationHandler">
+            <summary>
+            Objeto responsável pelo gerenciamento da autenticação por chave de API.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.ApiKeyAuthenticationHandler.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Touchless.Access.Authentication.ApiKeyAuthenticationOptions},Microsoft.Extensions.Logging.ILoggerFactory,System.Text.Encodings.Web.UrlEncoder,Microsoft.AspNetCore.Authentication.ISystemClock,Touchless.Access.Authentication.Interfaces.IApiKeyAuthenticationQuery)">
+            <summary>
+            Construtor padr/ao.
+            </summary>
+            <param name="options">Objeto responsavel pelas opções do processo de autenticação.</param>
+            <param name="logger">Objeto responsável pelo Log.</param>
+            <param name="encoder">Objeto responsável pelo encoding da URL.</param>
+            <param name="clock">Objeto contendo informações sobre o relógio.</param>
+            <param name="apiKeyAuthenticationQuery">Objeto responsável pela pesquisa das chaves de API.</param>
+        </member>
+        <member name="M:Touchless.Access.Authentication.ApiKeyAuthenticationHandler.HandleAuthenticateAsync">
+            <summary>
+            Realizar o processo de autenticação.
+            </summary>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.ApiKeyAuthenticationHandler.HandleChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)">
+            <summary>
+            Realizar o processo de desafio da autenticação.
+            </summary>
+            <param name="properties">Objeto contendo informaçõesso sobre a sessão de autenticação.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.ApiKeyAuthenticationHandler.HandleForbiddenAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)">
+            <summary>
+            Realizar o processo quando uma autenticação for negada.
+            </summary>
+            <param name="properties">Objeto contendo informaçõesso sobre a sessão de autenticação.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="T:Touchless.Access.Authentication.ApiKeyAuthenticationOptions">
+            <summary>
+            Objeto contendo as informações para realização da autenticação por chave de API.
+            </summary>
+        </member>
+        <member name="F:Touchless.Access.Authentication.ApiKeyAuthenticationOptions.AuthenticationType">
+            <summary>
+            Tipo da autenticação.
+            </summary>
+        </member>
+        <member name="F:Touchless.Access.Authentication.ApiKeyAuthenticationOptions.DefaultScheme">
+            <summary>
+            Schema padrão.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.ApiKeyAuthenticationOptions.Scheme">
+            <summary>
+            Atribuir o schema.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Authentication.InMemoryApiKeyAuthenticationQuery">
+            <summary>
+            Objeto responsável pelo gerenciamento das chave de API em memória.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.InMemoryApiKeyAuthenticationQuery.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.InMemoryApiKeyAuthenticationQuery.Execute(System.String)">
+            <summary>
+            Realizar a pesquisa pela existência da chave.
+            </summary>
+            <param name="apiKey">Chave a ser pesquisada.</param>
+            <returns>Chave encontrada.</returns>
+        </member>
+        <member name="T:Touchless.Access.Authentication.Interfaces.IApiKeyAuthenticationQuery">
+            <summary>
+            Disponibiliza os métodos responsáveis pela pequisa da chave de API.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.Interfaces.IApiKeyAuthenticationQuery.Execute(System.String)">
+            <summary>
+            Realizar a pesquisa pela existência da chave.
+            </summary>
+            <param name="apiKey">Chave a ser pesquisada.</param>
+            <returns>Chave encontrada.</returns>
+        </member>
+        <member name="T:Touchless.Access.Authentication.Interfaces.IJwtAuthenticationManager">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.Interfaces.IJwtAuthenticationManager.DecodeJwtToken(System.String)">
+            <summary>
+            Decodificar o token JWT.
+            </summary>
+            <param name="token">Conteúdo do token.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.Interfaces.IJwtAuthenticationManager.GenerateTokensAsync(System.String,System.Security.Claims.Claim[])">
+            <summary>
+            Gerar o token de autenticação.
+            </summary>
+            <param name="userName">Usuário</param>
+            <param name="claims">Claims de segurança.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.Interfaces.IJwtAuthenticationManager.RefreshAsync(System.String,System.String)">
+            <summary>
+            Atualizar o token de segurança.
+            </summary>
+            <param name="refreshToken">Conteúdo do token de segurança.</param>
+            <param name="accessToken">Conteúdo do token de acesso.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.Interfaces.IJwtAuthenticationManager.RemoveRefreshTokenByUserNameAsync(System.String)">
+            <summary>
+            Remover o token de renovação.
+            </summary>
+            <param name="userName">Usuário a qual o token de renovação pertence.</param>
+        </member>
+        <member name="T:Touchless.Access.Authentication.JwtAuthenticationManager">
+            <summary>
+            Objeto responsável pelo gerenciamento da autenticação JWT.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManager.#ctor(StackExchange.Redis.Extensions.Core.Abstractions.IRedisCacheClient,Touchless.Access.Authentication.Models.JwtTokenConfig)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="redisCacheClient">Objeto responsável pelo gerenciamento do cache Redis.</param>
+            <param name="jwtTokenConfig">Objeto responsável pela configuração do token de acesso.</param>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManager.GenerateRefreshTokenString">
+            <summary>
+            Criar um token de renovação.
+            </summary>
+            <returns>Token de renovação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManager.DecodeJwtToken(System.String)">
+            <summary>
+            Decodificar o token JWT.
+            </summary>
+            <param name="token">Conteúdo do token.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManager.GenerateTokensAsync(System.String,System.Security.Claims.Claim[])">
+            <summary>
+            Gerar o token de autenticação.
+            </summary>
+            <param name="userName">Usuário</param>
+            <param name="claims">Claims de segurança.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManager.RefreshAsync(System.String,System.String)">
+            <summary>
+            Atualizar o token de segurança.
+            </summary>
+            <param name="refreshToken">Conteúdo do token de segurança.</param>
+            <param name="accessToken">Conteúdo do token de acesso.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManager.RemoveRefreshTokenByUserNameAsync(System.String)">
+            <summary>
+            Remover o token de renovação.
+            </summary>
+            <param name="userName">Usuário a qual o token de renovação pertence.</param>
+        </member>
+        <member name="T:Touchless.Access.Authentication.JwtAuthenticationManagerExtension">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManagerExtension.ValidateAccessTokenAsync(System.String,System.String)">
+            <summary>
+            Validar o token de segurança da requisição.
+            </summary>
+            <param name="userName">Nome do usuário.</param>
+            <param name="accessToken">Conteúdo do token de acesso.</param>
+            <returns>Verdadeiro se válido, caso contrário, falso.</returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManagerExtension.AddJwtAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,Touchless.Access.Authentication.Models.JwtTokenConfig,System.Boolean)">
+            <summary>
+            Adicionar a autenticação JWT.
+            </summary>
+            <param name="services">Objeto responsável pelo gerenciamento dos serviços da aplicação.</param>
+            <param name="jwtTokenConfig">Objeto contendo as configurações do token.</param>
+            <param name="addApiKeySupport">Indicativo informando que deve ser adicionado o suporte a autenticação por chave de API.</param>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationManagerExtension.ConfigureJwtAuthentication(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configurar a autenticação JWT.
+            </summary>
+            <param name="application">Ojbeto responsável pela configuração do pipeline de requisição da aplicação.</param>
+        </member>
+        <member name="T:Touchless.Access.Authentication.JwtAuthenticationParameters">
+            <summary>
+            Parâmetros utilizado no processo de autenticação.
+            </summary>
+        </member>
+        <member name="F:Touchless.Access.Authentication.JwtAuthenticationParameters.Audience">
+            <summary>
+            Nome da audiencia.
+            </summary>
+        </member>
+        <member name="F:Touchless.Access.Authentication.JwtAuthenticationParameters.Issuer">
+            <summary>
+            Nome da Entidade.
+            </summary>
+        </member>
+        <member name="F:Touchless.Access.Authentication.JwtAuthenticationParameters.SecretKeys">
+            <summary>
+            Chaves secretas.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Authentication.JwtAuthenticationResult">
+            <summary>
+            Objeto contendo o resultado da autenticação JWT.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.JwtAuthenticationResult.AccessToken">
+            <summary>
+            Atribuir/Recuperar token de acesso.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.JwtAuthenticationResult.RefreshToken">
+            <summary>
+            Atribuir/Recupera token de renovação.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Authentication.JwtAuthenticationSecurityTokenHandler">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.JwtAuthenticationSecurityTokenHandler.CanValidateToken">
+            <summary>
+            Recuperar indicativo se o token pode ser validado.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.JwtAuthenticationSecurityTokenHandler.MaximumTokenSizeInBytes">
+            <summary>
+            Atribuir/Recuperar o tamanho máximo em bytes que o token de acesso pode ter.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.JwtAuthenticationSecurityTokenHandler.ValidateAccessToken">
+            <summary>
+            Atribuir/Recuperar a função utilizada para validar o token de acesso.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationSecurityTokenHandler.#ctor">
+            <summary>
+            Construtror padrão.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationSecurityTokenHandler.CanReadToken(System.String)">
+            <summary>
+            Verificar se o token de acesso pode ser lido.
+            </summary>
+            <param name="securityToken">Token de segurança.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Touchless.Access.Authentication.JwtAuthenticationSecurityTokenHandler.ValidateToken(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters,Microsoft.IdentityModel.Tokens.SecurityToken@)">
+            <summary>
+            Validar o token de acesso.
+            </summary>
+            <param name="securityToken">Token de segurança.</param>
+            <param name="validationParameters">Objeto contendo os parâmetros da validação.</param>
+            <param name="validatedToken">Objeto contendo os dados do token de acesso.</param>
+            <returns>Resultado da operação.</returns>
+        </member>
+        <member name="T:Touchless.Access.Authentication.Models.ApiKey">
+            <summary>
+            Objeto contendo as informações sobre a chave de acesso.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.Models.ApiKey.Key">
+            <summary>
+            Atribuir/Recuperar a chave de acesso.
+            </summary>
+        </member>
+        <member name="M:Touchless.Access.Authentication.Models.ApiKey.#ctor(System.String)">
+            <summary>
+            Construtor padrão.
+            </summary>
+            <param name="key">Chave de acesso.</param>
+        </member>
+        <member name="T:Touchless.Access.Authentication.Models.JwtTokenConfig">
+            <summary>
+            Objeto contendo as informações sobre o token de acesso.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.Models.JwtTokenConfig.AccessTokenExpiration">
+            <summary>
+            Atribuir/Recuperar tempo em minutos da validade do token de acesso.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.Models.JwtTokenConfig.RefreshTokenExpiration">
+            <summary>
+            Atribuir/Recuperar tempo em minutos que o token de renovação irá expirar.
+            </summary>
+        </member>
+        <member name="T:Touchless.Access.Authentication.Models.RefreshToken">
+            <summary>
+            Objeto contendo as informação do token de renovação.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.Models.RefreshToken.ExpireAt">
+            <summary>
+            Atribuir/Recuperar tempo de expiração do token de renovação.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.Models.RefreshToken.TokenString">
+            <summary>
+            Atribuir/Recuperar conteúdo do token de renovação.
+            </summary>
+        </member>
+        <member name="P:Touchless.Access.Authentication.Models.RefreshToken.UserName">
+            <summary>
+            Atribuir/Recuperar usuário a qual pertence o token de renovação.
+            </summary>
+        </member>
+    </members>
+</doc>

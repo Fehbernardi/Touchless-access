@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Copyright>Copyright Extractify® 2018-2022. Todos os direitos reservados.</Copyright>
+    <Company>Zylix</Company>
+    <Product>SGT - Sistema de Gestão de Terminais</Product>
+    <Authors>Zylix</Authors>
+    <RootNamespace>Touchless.Access.Authentication</RootNamespace>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.1.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <DocumentationFile>Touchless.Access.Authentication.xml</DocumentationFile>
+    <OutputPath>..\..\core\deployment\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="7.2.1" />
+  </ItemGroup>
+
+</Project>

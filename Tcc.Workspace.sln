@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{333EEF65-0F06-46FE-A50B-6572F581921C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Dockerfile = Dockerfile
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Services", "Touchless.Access.Services\Touchless.Access.Services.csproj", "{CEE3F373-230B-4D5D-82B6-EF367A0F560F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Data", "Touchless.Access.Data\Touchless.Access.Data.csproj", "{8D65E212-7DF8-42B3-8876-9A6F423CDFD7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Services.Common", "Touchless.Access.Services.Common\Touchless.Access.Services.Common.csproj", "{D77470D5-DDA2-4488-8553-0135F3CA01A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Api.Security", "Touchless.Access.Api.Security\Touchless.Access.Api.Security.csproj", "{3CD71878-DC99-4448-8C43-3F66F7DED0F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Common", "Touchless.Access.Common\Touchless.Access.Common.csproj", "{2F5E0B1D-0A8C-403E-925D-8DA29AF74530}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Exception", "Touchless.Access.Exception\Touchless.Access.Exception.csproj", "{8408CB9F-85D8-47DD-ADF2-FEBD0C8C7BFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Pagination", "Touchless.Access.Pagination\Touchless.Access.Pagination.csproj", "{D4B28AC8-7816-4912-8C0E-B959F5CDA43A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Repository", "Touchless.Access.Repository\Touchless.Access.Repository.csproj", "{41799175-26FE-4BCC-9780-4B4B9113071D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Services.Api", "Touchless.Access.Services.Api\Touchless.Access.Services.Api.csproj", "{DF7997D5-1C3D-46D9-B260-D5D500C283AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Touchless.Access.Authentication", "Touchless.Access.Authentication\Touchless.Access.Authentication.csproj", "{7CCDA483-D7BF-443F-A874-6FC3EC6050C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEE3F373-230B-4D5D-82B6-EF367A0F560F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE3F373-230B-4D5D-82B6-EF367A0F560F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE3F373-230B-4D5D-82B6-EF367A0F560F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE3F373-230B-4D5D-82B6-EF367A0F560F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D65E212-7DF8-42B3-8876-9A6F423CDFD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D65E212-7DF8-42B3-8876-9A6F423CDFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D65E212-7DF8-42B3-8876-9A6F423CDFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D65E212-7DF8-42B3-8876-9A6F423CDFD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D77470D5-DDA2-4488-8553-0135F3CA01A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D77470D5-DDA2-4488-8553-0135F3CA01A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D77470D5-DDA2-4488-8553-0135F3CA01A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D77470D5-DDA2-4488-8553-0135F3CA01A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD71878-DC99-4448-8C43-3F66F7DED0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD71878-DC99-4448-8C43-3F66F7DED0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD71878-DC99-4448-8C43-3F66F7DED0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD71878-DC99-4448-8C43-3F66F7DED0F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5E0B1D-0A8C-403E-925D-8DA29AF74530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5E0B1D-0A8C-403E-925D-8DA29AF74530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5E0B1D-0A8C-403E-925D-8DA29AF74530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5E0B1D-0A8C-403E-925D-8DA29AF74530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8408CB9F-85D8-47DD-ADF2-FEBD0C8C7BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8408CB9F-85D8-47DD-ADF2-FEBD0C8C7BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8408CB9F-85D8-47DD-ADF2-FEBD0C8C7BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8408CB9F-85D8-47DD-ADF2-FEBD0C8C7BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B28AC8-7816-4912-8C0E-B959F5CDA43A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B28AC8-7816-4912-8C0E-B959F5CDA43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B28AC8-7816-4912-8C0E-B959F5CDA43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B28AC8-7816-4912-8C0E-B959F5CDA43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41799175-26FE-4BCC-9780-4B4B9113071D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41799175-26FE-4BCC-9780-4B4B9113071D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41799175-26FE-4BCC-9780-4B4B9113071D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41799175-26FE-4BCC-9780-4B4B9113071D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF7997D5-1C3D-46D9-B260-D5D500C283AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF7997D5-1C3D-46D9-B260-D5D500C283AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF7997D5-1C3D-46D9-B260-D5D500C283AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF7997D5-1C3D-46D9-B260-D5D500C283AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CCDA483-D7BF-443F-A874-6FC3EC6050C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CCDA483-D7BF-443F-A874-6FC3EC6050C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CCDA483-D7BF-443F-A874-6FC3EC6050C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CCDA483-D7BF-443F-A874-6FC3EC6050C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35E4E87F-73C8-4330-ABF9-5A7C3F13A6A3}
+	EndGlobalSection
+EndGlobal

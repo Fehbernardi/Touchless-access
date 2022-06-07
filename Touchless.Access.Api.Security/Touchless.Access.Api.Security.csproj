@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Company>Zylix</Company>
+    <Product>SGT - Sistema de Gestão de Terminais</Product>
+    <Authors>Zylix</Authors>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.1.0</Version>
+  </PropertyGroup>
+
+</Project>
